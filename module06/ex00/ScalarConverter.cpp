@@ -2,5 +2,6 @@
 
 void    ScalarConverter::convert(std::string    input)
 {
+
     
 }

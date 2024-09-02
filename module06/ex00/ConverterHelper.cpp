@@ -16,15 +16,36 @@ std::string ConverterHelper::stringTrim(std::string str)
 	return (trimmedString);
 }
 
-bool    ConverterHelper::isSuffix(std::string   &str,    std::string &suffix)
+bool    ConverterHelper::isSuffix(std::string   &str,    std::string suffix)
 {
+	std::cout << "check btw " << str << " and  " << suffix << std::endl;
     if(str.length() >= suffix.length())
     {
-        return ()
+		if (str.rfind(suffix) == std::string::npos || str.rfind(suffix) != (str.length() - suffix.length()))
+        	return (false);
+		else
+			return (true);
     }
+	return (false);
 }
 
-int ConverterHelper::defineTypeFromString(std::string    str)
+bool	ConverterHelper::isNumber(std::string	str)
 {
-    
+	if (str.empty())
+		return (false);
+  if (ConverterHelper::isSuffix(str, ".f") == true)
+      str = str.substr(0, str.length() - 2);
+
+  std::cout << "check for >> " << str << std::endl;
+  for (size_t i = 0; i < str.length(); i++)
+  {
+    if (false == std::isdigit(str[i]))
+        return (false);
+  }
+  return (true);
+		
 }
+// int ConverterHelper::defineTypeFromString(std::string    str)
+// {
+    
+// }
